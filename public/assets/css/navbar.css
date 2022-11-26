@@ -1,0 +1,44 @@
+.navbar-brand {
+    font-weight: 500;
+    font-size: 20px;
+    color: #47b5ff;
+}
+  
+.nav-link {
+    font-size: 20px;
+    color: black;
+}
+  
+.button-primary {
+    box-sizing: border-box;
+    width: 127px;
+    height: 40px;
+    background: rgba(252, 253, 255, 0.3);
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    transition-duration: 0.4s;
+}
+  
+.button-primary:hover {
+    background-color: rgb(0, 47, 215, 0.3);
+    color: white;
+}
+  
+.button-secondary {
+    width: 146px;
+    height: 40px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1px solid #000000;
+    background: rgba(0, 47, 215, 0.3);
+    border-radius: 20px;
+}
+  
+.button-secondary:hover {
+    background-color: #fff;
+    color: black;
+}

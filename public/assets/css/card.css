@@ -1,0 +1,30 @@
+.card-login, .card-register {
+    width: 90%;
+    background-color: #DFF6FF;
+    border-radius: 20px;
+    border: none;
+}
+
+.card-login img {
+    border-radius: 0px 20px 20px 0px;
+}
+
+.card-register img {
+    border-radius: 20px 0px 0px 20px;
+}
+
+.card-login .card-title, .card-register .card-title {
+    font-size: 36px;
+}
+
+@media (max-width: 992px) { 
+    .card-login img, .card-register img, .jumbotron img {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) { 
+    .jumbotron img {
+        display: none;
+    }
+}
