@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function index()
     {
         if (Auth::user()) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/');
         }
 
         return view('login.view_login');
@@ -51,7 +51,7 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if($user){
-                return redirect()->intended('dashboard')->with([
+                return redirect()->intended('/')->with([
                     'flash-type' => 'sweetalert',
                     'case' => 'default',
                     'position' => 'center',

@@ -1,13 +1,17 @@
 @extends('layouts.main')
 
-@section('section')
-    @auth
-        @if (auth()->user()->level === 'administrator')
+@auth
+    @if (auth()->user()->level === 'administrator')
+        @section('admin-section')
             @include('administrator.dashboard')
-        @elseif (auth()->user()->level === 'patient')
+        @endsection
+    @elseif (auth()->user()->level === 'patient')
+        @section('section')
             @include('patient.dashboard')
-        @endif
-    @else
+        @endsection
+    @endif
+@else
+    @section('section')
         @include('patient.dashboard')
-    @endauth
-@endsection
+    @endsection
+@endauth

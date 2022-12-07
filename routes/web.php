@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\KonsultasiController;
-use App\Http\Controllers\LayoutController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\PasienController;
-use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LayoutController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryNewsController;
+use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\CategoryDiseaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +24,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(LayoutController::class)->group(function(){
-    Route::get('/', function(){
-        return redirect()->intended('dashboard');
-    });
-    Route::get('dashboard', 'index');
+Route::controller(LayoutController::class)->group(function () {
+    Route::get('/', 'index');
 });
 
-Route::controller(BeritaController::class)->group(function(){
-    Route::get('berita', 'index');
+Route::controller(ContactController::class)->group(function(){
+    Route::get('contact', 'index');
+});
+
+Route::controller(NewsController::class)->group(function(){
+    Route::get('news', 'index');
+    //kurang show
 });
 
 Route::middleware('guest')->group(function(){
@@ -53,10 +58,17 @@ Route::middleware('auth')->group(function(){
 Route::group(['middleware' => ['auth']], function(){
     Route::group(['middleware' => ['cekUserLogin:administrator']], function(){
         Route::resource('admin', AdminController::class);
+        Route::resource('patient', PatientController::class);
+        Route::resource('news', NewsController::class);
+        Route::resource('category-news', CategoryNewsController::class);
+        Route::resource('category-disease', CategoryDiseaseController::class);
     });
 
     Route::group(['middleware' => ['cekUserLogin:patient']], function(){
-        Route::resource('patient', PasienController::class);
-        Route::resource('konsultasi', KonsultasiController::class);
+        Route::resource('consultation', ConsultationController::class);
+
+        Route::controller(ContactController::class)->group(function(){
+            Route::post('contact', 'store');
+        });
     });
 });

@@ -11,7 +11,7 @@
                 @csrf
                 <div class="mb-3">
                   <label for="username" class="form-label fw-bold">Username</label>
-                  <input type="text" class="form-control form-login @error('username') is-invalid @enderror" name="username" id="username" aria-describedby="emailHelp" value="{{ old('username') }}">
+                  <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" aria-describedby="emailHelp" value="{{ old('username') }}" autocomplete="off">
                   @error('username')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label fw-bold">Password</label>
-                  <input type="password" class="form-control form-login @error('password') is-invalid @enderror" name="password" id="password">
+                  <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password">
                   @error('password')
                       <div class="invalid-feedback">
                         {{ $message }}

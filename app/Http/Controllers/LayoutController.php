@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\News;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class LayoutController extends Controller
@@ -13,7 +16,11 @@ class LayoutController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('welcome')->with([
+            'admin' => count(Admin::all()),
+            'patient' => count(Patient::all()),
+            'news' => count(News::all())
+        ]);
     }
 
     /**
