@@ -33,8 +33,8 @@ Route::controller(ContactController::class)->group(function(){
 });
 
 Route::controller(NewsController::class)->group(function(){
-    Route::get('news', 'index');
-    //kurang show
+    Route::get('news/read', 'index');
+    Route::get('news/read/{news}', 'show');
 });
 
 Route::middleware('guest')->group(function(){
@@ -62,6 +62,10 @@ Route::group(['middleware' => ['auth']], function(){
         Route::resource('news', NewsController::class);
         Route::resource('category-news', CategoryNewsController::class);
         Route::resource('category-disease', CategoryDiseaseController::class);
+
+        Route::controller(ContactController::class)->group(function(){
+            Route::get('contact/{contact}', 'show');
+        });
     });
 
     Route::group(['middleware' => ['cekUserLogin:patient']], function(){

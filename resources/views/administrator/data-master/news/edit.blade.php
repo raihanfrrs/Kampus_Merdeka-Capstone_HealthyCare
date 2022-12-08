@@ -44,17 +44,9 @@
                         @enderror
                     </div>
                     <div class="col-12 mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="description" rows="10" required>{{ old('description', $news->description) }}</textarea>
-                        @error ('description')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                    <div class="col-12 mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" name="content" id="content" rows="15" required>{{ old('content', $news->content) }}</textarea>
+                        <input id="content" type="hidden" name="content" value="{{ $news->content }}">
+                        <trix-editor input="content"></trix-editor>
                         @error ('content')
                             <div class="invalid-feedback">
                                 {{ $message }}

@@ -53,7 +53,7 @@
                                 <path fill="currentColor" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M7,20H9V14H7V20M11,20H13V12H11V20M15,20H17V16H15V20Z" />
                             </svg>
                         </div>
-                        Laporan
+                        Reporting
                         <div class="sb-sidenav-collapse-arrow">
                             <svg style="width:24px;height:24px" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="M7,10L12,15L17,10H7Z" />
@@ -62,10 +62,8 @@
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link collapsed" href="/konsultasi" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                Konsultasi
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
+                            <a class="nav-link" href="/consultation">Consultation</a>
+                            <a class="nav-link" href="/contact">Message</a>
                         </nav>
                     </div>
                 </div>

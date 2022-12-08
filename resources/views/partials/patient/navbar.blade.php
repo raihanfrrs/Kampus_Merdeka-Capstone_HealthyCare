@@ -11,7 +11,7 @@
           </li>
           @if (Request::segment(1) != 'news')
           <li class="nav-item mx-2">
-            <a class="nav-link" href="/news">News</a>
+            <a class="nav-link" href="/news/read">News</a>
           </li>
           @endif
           @if (Request::segment(1) != 'contact')
@@ -23,7 +23,7 @@
         @auth
           <ul class="nav navbar-nav">
             <li class="nav-item dropdown mx-2">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->pasien->name }}</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ auth()->user()->patient->name }}</a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a href="#" class="dropdown-item">
                       <svg style="width:24px;height:24px" viewBox="0 0 24 24">

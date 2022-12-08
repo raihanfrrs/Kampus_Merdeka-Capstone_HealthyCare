@@ -21,11 +21,10 @@ return new class extends Migration
             $table->foreignIdFor(CategoryNews::class);
             $table->string('author');
             $table->string('title')->unique();
-            $table->text('description');
+            $table->text('content');
             $table->string('urlSource')->nullable();
             $table->string('urlToImage')->nullable();
             $table->string('file_path')->nullable();
-            $table->text('content');
             $table->timestamps();
         });
     }

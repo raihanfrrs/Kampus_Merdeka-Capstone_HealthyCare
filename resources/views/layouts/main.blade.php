@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/sweetalert2/css/sweetalert2.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/datatables/css/simple-datatables.min.css">
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/bootstrap.min.custom.css">
+    <link rel="stylesheet" href="{{ asset('/') }}assets/vendor/trixeditor/css/trix.css">
     <script type="text/javascript" src="{{ asset('/') }}assets/vendor/sweetalert2/js/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}assets/vendor/trixeditor/js/trix.umd.min.js"></script>
 
     <!-- Template Main CSS File -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/css/style.css">

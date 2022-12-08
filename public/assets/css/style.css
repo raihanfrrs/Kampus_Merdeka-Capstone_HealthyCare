@@ -7,3 +7,7 @@ html,body {
     padding:0;
     overflow-x:hidden;
 }
+
+trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+}

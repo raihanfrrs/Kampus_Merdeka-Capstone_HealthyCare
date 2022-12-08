@@ -108,7 +108,7 @@ class PatientController extends Controller
         ];
 
         if ($request->name != $patient->name) {
-            $patient['name'] = 'required|min:2|max:255|unique:patients';
+            $patients['name'] = 'required|min:2|max:255|unique:patients';
         }
 
         if ($request->phone != $patient->phone) {

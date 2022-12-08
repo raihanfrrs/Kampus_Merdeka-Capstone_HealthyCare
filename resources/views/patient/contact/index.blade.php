@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Name" autocomplete="off" required>
+                  <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Name" autocomplete="off" value="@auth {{ old('name',$patient[0]->name) }} @endauth" required>
                   @error('name')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -22,7 +22,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">E-mail</label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="E-mail" autocomplete="off" required>
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="E-mail" autocomplete="off" value="@auth {{ old('email', $patient[0]->email) }} @endauth" required>
                   @error('email')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -31,11 +31,10 @@
                 </div>
                 <div class="mb-3">
                   <label for="message" class="form-label">Message</label>
-                  <textarea class="form-control @error('message') is-invalid @enderror" name="message" id="message" rows="7" placeholder="Message" required></textarea>
+                  <input id="message" type="hidden" name="message" value="{{ old('message') }}">
+                  <trix-editor input="message"></trix-editor>
                   @error('message')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
+                    <p class="text-danger">{{ $message }}</p>
                   @enderror
                 </div>
                 <button type="submit" class="btn btn-primary btn-md form-control">Send Message</button>

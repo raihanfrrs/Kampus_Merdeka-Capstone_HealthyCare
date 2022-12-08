@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,6 +15,19 @@ class ContactController extends Controller
      */
     public function index()
     {
+        if (isset(auth()->user()->level)) {
+            if (auth()->user()->level == 'administrator') {
+                return view('administrator.reporting.message.index')->with([
+                    'message' => Contact::all(),
+                    'title' => 'Reporting',
+                    'subtitle' => 'Message'
+                ]);
+            }else if (auth()->user()->level == 'patient') {
+                return view('patient.contact.index')->with([
+                    'patient' => Patient::where('user_id', auth()->user()->id)->get()
+                ]);
+            }
+        }
         return view('patient.contact.index');
     }
 
@@ -35,7 +49,25 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|min:5|max:255|email:rfc,dns',
+            'message' => 'required'
+        ]);
+
+        $patient = Patient::where('user_id', auth()->user()->id)->get();
+
+        $validateData['patient_id'] = $patient[0]->id;
+
+        Contact::create($validateData);
+
+        return redirect()->intended('/contact')->with([
+            'flash-type' => 'sweetalert',
+            'case' => 'default',
+            'position' => 'center',
+            'type' => 'success',
+            'message' => 'Sending Message Success!'
+        ]);
     }
 
     /**
@@ -46,7 +78,11 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        return view('administrator.reporting.message.show')->with([
+            'contact' => $contact,
+            'title' => 'Reporting',
+            'subtitle' => 'Message'
+        ]);
     }
 
     /**

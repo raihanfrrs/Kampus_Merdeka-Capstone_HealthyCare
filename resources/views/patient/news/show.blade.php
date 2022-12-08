@@ -7,38 +7,32 @@
       <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-5 news-lg">
-          @foreach ($news as $item)
-          <div class="row">
             <div class="card border-0 mb-5">
               <div class="card-image" style="max-height: 500px; overflow: hidden;">
-                @if ($item->urlToImage)
-                <img src="{{ $item->urlToImage }}" alt="{{ $item->title }}" class="img-fluid w-100 h-100">
+                @if ($news->urlToImage)
+                <img src="{{ $news->urlToImage }}" alt="{{ $news->title }}" class="img-fluid w-100 h-100">
                 @else 
-                <img src="{{ asset('storage/'.$item->file_path) }}" alt="{{ $item->title }}" class="img-fluid w-100 h-100">
+                <img src="{{ asset('storage/'.$news->file_path) }}" alt="{{ $news->title }}" class="img-fluid w-100 h-100">
                 @endif
               </div>
               <div class="card-body px-0">
                 <div class="news-title">
-                  <a href="/news/read/{{ $item->id }}">{{ $item->title }}</a>
+                  <a href="/news/read/{{ $news->id }}">{{ $news->title }}</a>
                 </div>
                 <div class="news-meta">
                   <span class="news-author">
-                      <a href="#">By {{ $item->author }}</a>
+                      <a href="#">By {{ $news->author }}</a>
                   </span>
                   <span>|</span>
-                  <span class="news-date">{{ $item->updated_at->diffForHumans() }}</span>
+                  <span class="news-date">{{ $news->updated_at->diffForHumans() }}</span>
                 </div>
                 <div class="news-text">
                   <p class="text-muted">
-                      {{ Str::words($item->content, 50) }}
+                      {!! $news->content !!}
                   </p>
                 </div>
-                <a href="/news/read/{{ $item->id }}" class="btn btn-primary btn-lg rounded-0"><span class="fw-bold p-4 fs-6">Read More</span></a>
               </div>
             </div>
-          </div>
-          @endforeach
-          {{ $news->links() }}
         </div>
         <div class="col-lg-3 news-lg">
           <h5 class="fw-bold">Tags</h5>

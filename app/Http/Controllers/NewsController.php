@@ -23,13 +23,17 @@ class NewsController extends Controller
                 ]);
             } elseif (auth()->user()->level == 'patient') {
                 return view('patient.news.index')->with([
-                    'news' => News::all()
+                    'news' => News::latest()->paginate(5),
+                    'category' => CategoryNews::all(),
+                    'latest_news' => News::latest()->limit(3)->get()
                 ]);
             }
         }
 
         return view('patient.news.index')->with([
-            'news' => News::all()
+            'news' => News::latest()->paginate(5),
+            'category' => CategoryNews::all(),
+            'latest_news' => News::latest()->limit(3)->get()
         ]);
     }
 
@@ -57,7 +61,6 @@ class NewsController extends Controller
             'title' => 'required|max:255|unique:news',
             'author' => 'required|max:225',
             'category_news_id' => 'required',
-            'description' => 'required',
             'content' => 'required',
             'urlSource' => '',
             'urlToImage' => '',
@@ -89,7 +92,21 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        //
+        if (isset(auth()->user()->level)) {
+            if (auth()->user()->level == 'patient') {
+                return view('patient.news.show')->with([
+                    'news' => $news,
+                    'category' => CategoryNews::all(),
+                    'latest_news' => News::latest()->limit(3)->get()
+                ]);
+            }
+        }
+
+        return view('patient.news.show')->with([
+            'news' => $news,
+            'category' => CategoryNews::all(),
+            'latest_news' => News::latest()->limit(3)->get()
+        ]);
     }
 
     /**
@@ -118,7 +135,6 @@ class NewsController extends Controller
         $new = [
             'author' => 'required|max:225',
             'category_news_id' => 'required',
-            'description' => 'required',
             'content' => 'required',
             'urlSource' => '',
             'urlToImage' => '',
@@ -159,6 +175,7 @@ class NewsController extends Controller
      */
     public function destroy(News $news)
     {
+        Storage::delete($news->file_path);
         News::destroy($news->id);
 
         return redirect()->intended('/news')->with([
