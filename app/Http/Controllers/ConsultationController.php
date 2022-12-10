@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
@@ -14,7 +15,9 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        return view('patient.consultation.index')->with([
+            'patient' => Patient::where('user_id', auth()->user()->id)->get()
+        ]);
     }
 
     /**

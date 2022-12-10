@@ -3,9 +3,9 @@
         <div class="col-md-12 col-lg-12 col-xl-8">
             <h4><p class="fw-semibold text-info">EASY TO HEALTHY, EASY KNOW U DISEASE</p></h4>
             <h1 class="display-4">We Follow a Holistic Approach to HealthyCare.</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="konsultasi" role="button">Get Started!</a>
+            <p class="lead">We help and facilitate the work of knowing your disease.</p>
+            <p>When else if not start from now to maintain your health. Hit the button below when you're ready.</p>
+            <a class="btn btn-primary btn-lg" href="/consultation" role="button">Get Started!</a>
         </div>
         <div class="col-xl-4">
             <img src="{{ asset('/') }}assets/img/background-image-3.jpg" alt="background-3" class="img-fluid w-75">
@@ -24,7 +24,7 @@
             </div>
             <div class="card-body">
                 <h6 class="card-title fw-semibold">Easy to Use</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">Our goal is HealthyCare can be used by all people easily and anywhere.</p>
             </div>
         </div>
         <div class="card mx-5 my-2 border-0 bg-transparent" style="width: 18rem;">
@@ -35,7 +35,7 @@
             </div>
             <div class="card-body">
                 <h6 class="card-title fw-semibold">Accurate</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">There is no doubt that our consultation can be said to be accurate in selecting the disease that suits the patient's condition.</p>
             </div>
         </div>
         <div class="card mx-5 my-2 border-0 bg-transparent" style="width: 18rem;">
@@ -46,7 +46,7 @@
             </div>
             <div class="card-body">
                 <h6 class="card-title fw-semibold">Free</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">All the features that we provide are free of charge.</p>
             </div>
         </div>
     </div>
@@ -57,18 +57,15 @@
         <div class="col-lg-5">
             <img src="{{ asset('/') }}assets/img/background-image-4.png" alt="" class="img-fluid w-100">
         </div>
-        <div class="col-lg-7 bg-info p-5">
+        <div class="col-lg-7 bg-info p-5 text-center text-white">
+            <p class="fs-1 fw-bold" style="padding-top: 15%">
+                Register now and get lifetime <span style="color: black;">free consultation</span>
+            </p>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim sodales vulputate. Donec elementum erat a ex fringilla, tempus viverra sapien condimentum. Vestibulum nec diam luctus, scelerisque nisl at, suscipit purus. Quisque sit amet arcu sit amet neque tincidunt vehicula ac eu sem. Sed id molestie arcu. Aenean porta faucibus odio sit amet porta. Maecenas quis finibus dui, at scelerisque leo. Maecenas et commodo nibh. In hac habitasse platea dictumst. Aliquam eget viverra dui.
+                HealthyCare merupakan platform aplikasi berbasis website yang bergerak dalam bidang kesehatan, tujuan utama kami untuk membantu dan memudahkan masyarakat yang ingin konsultasi secara gratis dan instant dalam mengetahui jenis penyakit yang diderita tanpa harus keluar rumah dan dapat diakses dimana saja.
             </p>
 
-            <p>
-                Integer aliquam eget diam eu fermentum. Nulla et enim ut arcu venenatis pellentesque a a sapien. Duis vehicula, risus nec imperdiet congue, nulla mauris pellentesque quam, sed faucibus quam quam a est. Morbi aliquam aliquet vestibulum. Nunc eu arcu non nulla molestie viverra vel non dui. Phasellus id sem at justo euismod fermentum. Nullam consectetur quam nisi, sit amet laoreet eros congue sed.
-            </p>
-
-            <p>
-                In euismod eget massa ut sodales. Donec ut ipsum magna. Etiam sollicitudin elit non orci imperdiet lobortis. Nam sagittis eu erat a finibus. Praesent sed malesuada velit. Etiam quis diam id nibh consequat accumsan. Morbi ut scelerisque odio, nec vulputate nisi. Sed vitae sagittis arcu.
-            </p>
+            <a href="/register" class="btn btn-primary btn-lg mt-5 fw-bold" style="background-color: black; border: 1px solid black;">REGISTER NOW</a>
         </div>
     </div>
 </div>

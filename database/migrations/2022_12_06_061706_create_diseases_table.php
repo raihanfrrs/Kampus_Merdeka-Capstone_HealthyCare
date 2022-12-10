@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignIdFor(CategoryDisease::class);
             $table->string('disease')->unique();
             $table->string('doctor');
-            $table->string('urlToImage');
             $table->string('symptom1')->nullable();
             $table->string('symptom2')->nullable();
             $table->string('symptom3')->nullable();

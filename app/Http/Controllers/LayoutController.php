@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Contact;
 use App\Models\News;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class LayoutController extends Controller
         return view('welcome')->with([
             'admin' => count(Admin::all()),
             'patient' => count(Patient::all()),
-            'news' => count(News::all())
+            'news' => count(News::all()),
+            'message' => count(Contact::all())
         ]);
     }
 

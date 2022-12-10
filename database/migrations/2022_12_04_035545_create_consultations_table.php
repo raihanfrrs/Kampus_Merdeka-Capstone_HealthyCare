@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Disease;
 use App\Models\Patient;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,8 +18,11 @@ return new class extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Patient::class);
-            $table->integer('penyakit_id');
-            $table->timestamp('tgl_diagnosa')->nullable();
+            $table->foreignIdFor(Disease::class);
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->timestamp('tgl_diagnosa');
             $table->timestamps();
         });
     }

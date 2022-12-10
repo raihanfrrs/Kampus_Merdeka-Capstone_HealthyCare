@@ -6,6 +6,13 @@
       <h2 class="text-info fw-bold pb-5 pt-1 text-center">The News</h2>
       <div class="row">
         <div class="col-lg-2"></div>
+        @if (count($news) == 0)
+        <div class="col-lg-8" style="margin-bottom: 20%">
+          <div class="alert alert-primary" role="alert">
+            Oopsie!, We haven't any news today.
+          </div>
+        </div>
+        @else
         <div class="col-lg-5 news-lg">
           @foreach ($news as $item)
           <div class="row">
@@ -21,19 +28,14 @@
                 <div class="news-title">
                   <a href="/news/read/{{ $item->id }}">{{ $item->title }}</a>
                 </div>
-                <div class="news-meta">
+                <div class="news-meta mb-5">
                   <span class="news-author">
                       <a href="#">By {{ $item->author }}</a>
                   </span>
                   <span>|</span>
                   <span class="news-date">{{ $item->updated_at->diffForHumans() }}</span>
                 </div>
-                <div class="news-text">
-                  <p class="text-muted">
-                      {{ Str::words($item->content, 50) }}
-                  </p>
-                </div>
-                <a href="/news/read/{{ $item->id }}" class="btn btn-primary btn-lg rounded-0"><span class="fw-bold p-4 fs-6">Read More</span></a>
+                <a href="/news/read/{{ $item->id }}" class="btn btn-primary btn-lg rounded-0"><span class="fw-bold p-4 fs-6">Read News</span></a>
               </div>
             </div>
           </div>
@@ -74,6 +76,7 @@
           </div>
           @endforeach
         </div>
+        @endif
         <div class="col-lg-2"></div>
       </div>
     </div>
